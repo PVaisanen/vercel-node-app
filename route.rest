@@ -1,0 +1,40 @@
+POST http://vercel-node-app.pvaisanen.vercel.app/scoreboard
+Content-Type: application/json
+
+{
+    "name": "Markku",
+    "category": "21",
+    "score": 2
+}
+
+###
+GET http://vercel-node-app.pvaisanen.vercel.app/scoreboard/21
+
+###
+GET http://localhost:3000/scoreboard/21
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4xMjMiLCJpYXQiOjE2MDkyMjE0MDMsImV4cCI6MTYwOTI0MzAwM30.vIPVm5by_UxDI9Gg0PfZbmn-UdhXYSPHFaMeMFXEY8E
+
+###
+PATCH http://vercel-node-app.pvaisanen.vercel.app/scoreboard/5fea3218012bd70009839e37
+Content-Type: application/json
+
+{
+    "name": "Seppo",
+    "score": 6
+}
+
+###
+POST http://vercel-node-app.pvaisanen.vercel.app/login
+Content-Type: application/json
+
+{
+"username": "Admin123"
+}
+
+###
+POST Http://localhost:4000/login
+Content-Type: application/json
+
+{
+"username": "Admin123"
+}
