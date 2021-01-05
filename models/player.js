@@ -17,7 +17,11 @@ const playerSchema = new mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now
-    }
+    },
+    difficulty: {
+        type: String,
+        required: true
+    },
 })
 
 module.exports = mongoose.model('player', playerSchema)

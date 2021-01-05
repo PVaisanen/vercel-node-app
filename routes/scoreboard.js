@@ -32,7 +32,9 @@ router.post('/', async (req,res) => {
         name: req.body.name,
         category: req.body.category,
         score: req.body.score,
-        playDate: req.body.playDate
+        playDate: req.body.playDate,
+        difficulty: req.body.difficulty,
+
     })
     try {
         const newPlayer = await player.save()
@@ -52,6 +54,10 @@ router.patch('/:id', getPlayer, async (req,res) => {
 
     if (req.body.category != null ){
         res.category = req.category
+    }
+
+    if (req.body.difficulty != null ){
+        res.difficulty = req.difficulty
     }
   
     try {

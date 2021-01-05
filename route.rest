@@ -2,17 +2,23 @@ POST http://vercel-node-app.pvaisanen.vercel.app/scoreboard
 Content-Type: application/json
 
 {
-    "name": "Markku",
-    "category": "21",
-    "score": 2
+    "name": "Max",
+    "category": "0",
+    "score": 2,
+    "difficulty": "easy"
 }
 
 ###
-GET http://vercel-node-app.pvaisanen.vercel.app/scoreboard/21
+GET http://vercel-node-app.pvaisanen.vercel.app/scoreboard/0
 
 ###
-GET http://localhost:3000/scoreboard/21
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4xMjMiLCJpYXQiOjE2MDkyMjE0MDMsImV4cCI6MTYwOTI0MzAwM30.vIPVm5by_UxDI9Gg0PfZbmn-UdhXYSPHFaMeMFXEY8E
+GET http://localhost:3005/Scoreboard/0
+Content-Type: application/json
+
+###
+GET http://localhost:3005/Scoreboard/
+Content-Type: application/json
+
 
 ###
 PATCH http://vercel-node-app.pvaisanen.vercel.app/scoreboard/5fea3218012bd70009839e37
@@ -38,3 +44,8 @@ Content-Type: application/json
 {
 "username": "Admin123"
 }
+
+###
+DELETE http://vercel-node-app.pvaisanen.vercel.app/scoreboard/5feb4fdb1bb9b30008081d87
+Content-Type: application/json
+

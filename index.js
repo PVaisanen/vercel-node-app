@@ -5,11 +5,11 @@ const express = require('express');
 const { Mongoose } = require('mongoose')
 const jwt = require('jsonwebtoken')
 
-
 const app = express()
 const mongoose = require('mongoose')
 
-const db_url = "mongodb+srv://admin:Admin123@cluster0.qmbws.mongodb.net/scorecard?retryWrites=true&w=majority"
+const db_url = DATABASE_URL
+//const db_url = "mongodb+srv://admin:Admin123@cluster0.qmbws.mongodb.net/scorecard?retryWrites=true&w=majority"
 mongoose.connect(db_url, {useNewUrlParser: true})
 const db = mongoose.connection
 
@@ -28,6 +28,13 @@ db.on('error', (error) => console.log(error))
 db.once('open', () => console.log('Connected to Database'))
 
 app.use(express.json())
+
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+})
 
 app.get('/', (req, res) => res.send('Quiz app RestApi'));
 
@@ -50,6 +57,6 @@ function authenticateToken(req, res, next) {
     })
   }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005;
 
 app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
