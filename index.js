@@ -1,4 +1,4 @@
-// require('dotenv').config()
+ //require('dotenv').config()
 
 const { urlencoded } = require('express');
 const express = require('express');
@@ -8,8 +8,9 @@ const jwt = require('jsonwebtoken')
 const app = express()
 const mongoose = require('mongoose')
 
-const db_url = DATABASE_URL
-//const db_url = "mongodb+srv://admin:Admin123@cluster0.qmbws.mongodb.net/scorecard?retryWrites=true&w=majority"
+
+//const db_url = process.env.DATABASE_URL
+const db_url = "mongodb+srv://admin:Admin123@cluster0.qmbws.mongodb.net/scorecard?retryWrites=true&w=majority"
 mongoose.connect(db_url, {useNewUrlParser: true})
 const db = mongoose.connection
 

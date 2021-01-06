@@ -16,17 +16,27 @@ GET http://localhost:3005/Scoreboard/0
 Content-Type: application/json
 
 ###
+GET http://localhost:3005/Scoreboard/0/hard
+Content-Type: application/json
+
+###
 GET http://localhost:3005/Scoreboard/
 Content-Type: application/json
 
+###
+DELETE http://localhost:3005/scoreboard/5ff4954dbb0b8b670441441c
 
 ###
-PATCH http://vercel-node-app.pvaisanen.vercel.app/scoreboard/5fea3218012bd70009839e37
+DELETE http://vercel-node-app.pvaisanen.vercel.app/scoreboard/5ff4954dbb0b8b670441441c
+
+###
+PATCH http://localhost:3005/scoreboard/5ff4ae492433d000087a7bf1
 Content-Type: application/json
 
 {
-    "name": "Seppo",
-    "score": 6
+    "name": "Keijo",
+    "score": 3,
+    "difficulty": "hard"
 }
 
 ###

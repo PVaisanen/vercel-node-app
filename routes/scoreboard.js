@@ -15,7 +15,18 @@ router.get('/',async (req,res) => {
 router.get('/:category',async (req,res) => {
     try {
         const players = await Player.where({ 
-            category: req.params.category}).sort('-score').limit(12)
+            category: req.params.category}).sort('-score').limit(8)
+        res.json(players)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+// Getting all from category and difficulty
+router.get('/:category/:difficulty',async (req,res) => {
+    try {
+        const players = await Player.where({ 
+            category: req.params.category, difficulty: req.params.difficulty}).sort('-score').limit(8)
         res.json(players)
     } catch (err) {
         res.status(500).json({ message: err.message })
@@ -51,13 +62,11 @@ router.patch('/:id', getPlayer, async (req,res) => {
     if (req.body.score != null) {
         res.player.score = req.body.score
     }
-
     if (req.body.category != null ){
-        res.category = req.category
+        res.player.category = req.body.category
     }
-
     if (req.body.difficulty != null ){
-        res.difficulty = req.difficulty
+        res.player.difficulty = req.body.difficulty
     }
   
     try {
