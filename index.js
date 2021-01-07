@@ -1,4 +1,4 @@
- //require('dotenv').config()
+ // require('dotenv').config()
 
 const { urlencoded } = require('express');
 const express = require('express');
@@ -32,15 +32,20 @@ app.use(express.json())
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
-    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 })
 
 app.get('/', (req, res) => res.send('Quiz app RestApi'));
 
+
+const visitCounterRouter = require('./routes/visitors')
+app.use('/visitors', visitCounterRouter)
+
 const scoreboardRouter = require('./routes/scoreboard')
 app.use('/scoreboard', scoreboardRouter)
+
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']

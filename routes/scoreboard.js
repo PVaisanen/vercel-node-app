@@ -6,6 +6,7 @@ const Player = require('../models/player')
 router.get('/',async (req,res) => {
     try {
         const players = await Player.find()
+        res.json(players)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
@@ -100,5 +101,6 @@ async function getPlayer(req, res, next) {
     res.player = player
     next()
 }
+
 
 module.exports = router
